@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "brassia";
+    src: url("./fonts/brassia-master/fonts/web/Brassia-Regular.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: "hanyi";
+    src: url("./fonts/HanyiSentyPagoda/HanyiSentyPagoda.ttf") format('ttf');
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#w {
+    /* can also be whatever container */
+    width: 100vw;
+    height: 90vh;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+#about {
+    position: fixed;
+    left: 25px;
+    top: 25px;
+    font-family: 'brassia';
+    font-size: 16px;
+}
+
+#oracle {
+    max-width: 200px;
+}
+
+#caption {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 60px;
+    font-family: 'brassia', 'hanyi';
+    font-size: 30px;
+    line-height: 40px;
+}
+
+body {
+    margin-bottom: 120px;
+}
+
+#popup {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    z-index: 1000;
+    top: 30%;
+    left: 30%;
+    width: 40vw;
+    height: 30vh;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px dotted #888;
+
+}
+
+#popup-content {
+    position: relative;
+    margin: 5%;
+    margin-right: 2%;
+    padding: 5px;
+    line-height: 110%;
+    width: 90%;
+    /* Could be more or less, depending on screen size */
+    font-family: 'brassia';
+    overflow-y: scroll;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Miaoye Que">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Chinese Oracle</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+</head>
+
+<body>
+    <div id="w">
+
+        <div id="about" onclick="showContent('popup')" data-secret="hohoho">⁂ about ⁂</div>
+
+        <div id="yi">
+
+        </div>
+        <img id="oracle" src="./images/bagua.png" alt="bagua">
+        <div id="caption"></div>
+    </div>
+
+    <div id="popup">
+        <div id="popup-content">
+            <p>Chinese Oracle was originally created by <a href="https://www.yourworldoftext.com/~miaoye/"
+                    target="_blank" rel="noopener noreferrer">Miaoye Que</a> for Tega Brain's class: Crafting the Web.
+                Maintained and updated
+                with care.</p>
+            <p>Special thanks to: Tim Busuttil's <a href="https://crawlspace.cool/if-i-were-able" target="_blank"
+                    rel="noopener noreferrer">If I were able</a>, Agnes + Gary's <a href="https://backseatfrying.net/"
+                    target="_blank" rel="noopener noreferrer">Backseat Frying</a>, my Chinese heritage.</p>
+            <p style="text-align: center;">(CLICK ANYWHERE IN THIS WINDOW TO CLOSE)</p>
+        </div>
+    </div>
+
+
+    <script>
+        const q = (e) => document.querySelector(e);
+        function showContent(e) {
+            let x = document.getElementById(e);
+            if (!x.style.display || x.style.display == 'none') {
+                x.style.display = 'flex';
+                let w = document.getElementById("w");
+                w.style.filter = "blur(3px)";
+            }
+        }
+        q("#popup").addEventListener('click', () => {
+            let popup = document.getElementById("popup");
+            if (popup.style.display == 'flex') {
+                popup.style.display = 'none';
+                w.style.filter = null;
+            }
+        });
+        $(document).ready(function () {
+            typed = new Typed('#caption', {
+                strings: ['CONSULT THE CHINESE ORACLE TODAY', 'LIVE YOUR BEST LIFE THE CHINESE WAY', 'PERFECT DOS AND DON\'TS', 'ORIENT YOUR DAY WITH THE ORACLE\'S ADVICE'],
+                typeSpeed: 100,
+                startDelay: 200,
+                backDelay: 1500,
+                backSpeed: 30,
+                loop: true,
+                showCursor: false,
+            });
+        });
+    </script>
+
+</body>
+
+</html>
