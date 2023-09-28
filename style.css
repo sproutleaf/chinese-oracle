@@ -13,6 +13,7 @@ body {
     margin: 0;
     height: 100%;
     overflow: hidden;
+    font-family: 'brassia';
 }
 
 #w {
@@ -23,8 +24,8 @@ body {
     display: flex;
     -webkit-align-items: center;
     align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
+    -webkit-justify-content: space-evenly;
+    justify-content: space-evenly;
 }
 
 #about {
@@ -36,7 +37,29 @@ body {
 }
 
 #oracle {
+    cursor: pointer;
     max-width: 200px;
+}
+
+/* For the entire sections of Yi & Ji */
+#yi,
+#ji {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-width: 300px;
+}
+
+.title {
+    display: none;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* For each item in Yi & Ji */
+.yi,
+.ji {
+    margin: 2px 0;
 }
 
 #caption {
@@ -46,14 +69,10 @@ body {
     left: 0;
     width: 100%;
     max-width: 100%;
-    height: 60px;
+    height: 10vh;
     font-family: 'brassia', 'hanyi';
     font-size: 30px;
     line-height: 40px;
-}
-
-body {
-    margin-bottom: 120px;
 }
 
 #popup {

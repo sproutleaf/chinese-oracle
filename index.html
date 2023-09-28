@@ -17,9 +17,16 @@
         <div id="about" onclick="showContent('popup')" data-secret="hohoho">⁂ about ⁂</div>
 
         <div id="yi">
-
+            <div class="title">
+                GOOD FOR
+            </div>
         </div>
-        <img id="oracle" src="./images/bagua.png" alt="bagua">
+        <img id="oracle" src="./images/bagua.png" alt="bagua" onclick="showOracle()">
+        <div id="ji">
+            <div class="title">
+                AVOID
+            </div>
+        </div>
         <div id="caption"></div>
     </div>
 
@@ -38,7 +45,21 @@
 
 
     <script>
-        const q = (e) => document.querySelector(e);
+        const rec = ["Drink Hot Water", "Get a Massage", "Foot Bath", "Stretch 3 Times a Day", "Eat Congee", "Green Tea", "Psychic Reading", "Practice Your Qi", "Acupuncture", "Burn Incense", "Talk to Elders", "Play Mahjong", "Sweet Tofu", "Stroll in a Park"],
+            avoid = ["All Nighter", "Alcohol", "Caffeine", "Doomscrolling", "Fast Food", "Pessimism", "Wear a Crop Top", "Crowded Spaces", "Large Bodies of Water", "Spicy Food", "Cynical People"];
+        let q = (e) => document.querySelector(e),
+            shown = false,
+            num = 3,
+            shuffle = (arr) => {
+                let j, x, i;
+                for (i = arr.length - 1; i > 0; i--) {
+                    j = Math.floor(Math.random() * (i + 1));
+                    x = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = x;
+                }
+                return arr;
+            };
         function showContent(e) {
             let x = document.getElementById(e);
             if (!x.style.display || x.style.display == 'none') {
@@ -65,6 +86,37 @@
                 showCursor: false,
             });
         });
+        showOracle = () => {
+            shuffle(rec);
+            shuffle(avoid);
+
+            if (!shown) {
+                let titles = document.getElementsByClassName("title");
+                for (let i = 0; i < titles.length; i++) {
+                    titles[i].style.display = "block";
+                }
+                for (let i = 0; i < num; i++) {
+                    let e = document.createElement(`y${i}`),
+                        f = document.createElement(`j${i}`);
+                    q("#yi").appendChild(e),
+                        e.classList.add("yi"),
+                        e.classList.add("row"),
+                        e.setAttribute("id", `y${i}`),
+                        e.innerHTML += rec[i];
+                    q("#ji").appendChild(f),
+                        f.classList.add("ji"),
+                        f.classList.add("row"),
+                        f.setAttribute("id", `j${i}`),
+                        f.innerHTML += avoid[i];
+                }
+                shown = true;
+            } else {
+                for (let i = 0; i < num; i++) {
+                    q(`y${i}`).innerHTML = rec[i];
+                    q(`j${i}`).innerHTML = avoid[i];
+                }
+            }
+        }
     </script>
 
 </body>
